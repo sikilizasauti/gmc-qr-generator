@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GMC QR Generator</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body style="font-family: Arial; text-align:center; padding:40px;">
+
+  <h2>GMC QR Code Generator</h2>
+
+  <input id="link" type="text" placeholder="Entrer lien client" size="40">
+  <br><br>
+
+  <button onclick="generateQR()">Générer QR Code</button>
+
+  <div id="qrcode" style="margin-top:30px;"></div>
+
+  <script>
+    function generateQR() {
+      document.getElementById("qrcode").innerHTML = "";
+      var link = document.getElementById("link").value;
+
+      new QRCode(document.getElementById("qrcode"), {
+        text: link,
+        width: 200,
+        height: 200
+      });
+    }
+  </script>
+
+</body>
+</html>
